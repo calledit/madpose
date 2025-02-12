@@ -200,7 +200,7 @@ class HybridPoseOptimizerScaleOnly {
         }
 
         if (problem_->HasParameterBlock(&scale_)) {
-            problem_->SetParameterLowerBound(&scale_, 0, 1e-2); // scale >= 0
+            problem_->SetParameterBlockConstant(&scale_);
         }
 
         if (problem_->HasParameterBlock(&offset0_))
@@ -315,7 +315,7 @@ class HybridSharedFocalPoseOptimizer {
         }
 
         if (problem_->HasParameterBlock(&scale_)) {
-            problem_->SetParameterLowerBound(&scale_, 0, 1e-2); // scale >= 0
+            problem_->SetParameterBlockConstant(&scale_);
         }
         if (config_.min_depth_constraint && problem_->HasParameterBlock(&offset0_)) {
             problem_->SetParameterLowerBound(&offset0_, 0,
@@ -440,7 +440,7 @@ class HybridTwoFocalPoseOptimizer {
         }
 
         if (problem_->HasParameterBlock(&scale_)) {
-            problem_->SetParameterLowerBound(&scale_, 0, 1e-2); // scale >= 0
+            problem_->SetParameterBlockConstant(&scale_);
         }
         if (config_.min_depth_constraint && problem_->HasParameterBlock(&offset0_)) {
             problem_->SetParameterLowerBound(&offset0_, 0,
