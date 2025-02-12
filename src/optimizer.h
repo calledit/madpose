@@ -77,7 +77,7 @@ class HybridPoseOptimizer {
         }
 
         if (problem_->HasParameterBlock(&scale_)) {
-            problem_->SetParameterLowerBound(&scale_, 0, 1e-2); // scale >= 0
+            problem_->SetParameterBlockConstant(&scale_);
         }
         if (config_.min_depth_constraint && problem_->HasParameterBlock(&offset0_)) {
             problem_->SetParameterLowerBound(&offset0_, 0,
